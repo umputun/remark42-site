@@ -1,0 +1,13 @@
+pipeline:
+
+  deploy:
+    image: appleboy/drone-ssh
+    host: remark42.com
+    username: umputun
+    port: 22
+    secrets: [ ssh_key ]
+    script:
+      - cd /srv/remark-site
+      - git pull
+    when:
+      branch: master
