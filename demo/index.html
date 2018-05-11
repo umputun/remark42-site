@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Remark42 demo</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <article>
+    <h1><a href="/">Remark42</a></h1>
+    <div id="remark42"></div>
+  </article>
+
+  <script>
+    var remark_config = {
+      site_id: 'remark',
+      url: 'https://remark42.com/demo/',
+    };
+
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://demo.remark42.com/web/embed.js';
+      s.type = 'text/javascript';
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the comments powered by Remark.
+  </noscript>
+</body>
+</html>

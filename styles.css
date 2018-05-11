@@ -1,0 +1,35 @@
+body {
+  text-align: center;
+  padding: 150px;
+}
+
+h1 {
+  font-size: 50px;
+  margin-left: -0.05em;
+}
+
+body {
+  font: 20px Helvetica, sans-serif;
+  color: #333;
+}
+
+article {
+  display: block;
+  text-align: left;
+  width: 650px;
+  margin: 0 auto;
+}
+
+ul {
+  color: rgb(50, 142, 165);
+}
+
+a {
+  color: rgb(79, 187, 214);
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(94, 167, 177);
+  text-decoration: none;
+}
