@@ -1,14 +1,21 @@
 body {
+  margin: 0;
+  padding: 20px;
   text-align: center;
-  padding: 150px;
   font: 18px/24px Helvetica, Arial, sans-serif;
   color: #333;
+}
+
+@media (min-width: 768px) {
+  body {
+    padding: 150px;
+  }
 }
 
 article {
   display: block;
   text-align: left;
-  width: 650px;
+  max-width: 640px;
   margin: 0 auto;
 }
 
