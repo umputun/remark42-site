@@ -25,7 +25,7 @@ h1 {
 }
 
 ul {
-  color: rgb(50, 142, 165);
+  color: rgb(23, 67, 78);
 }
 
 a {
@@ -35,5 +35,5 @@ a {
 
 a:hover {
   color: rgb(94, 167, 177);
-  text-decoration: none;
+  text-decoration: underline;
 }
