@@ -1,13 +1,25 @@
-pipeline:
+kind: pipeline
+name: default
+type: docker
 
-  deploy:
-    image: appleboy/drone-ssh
-    host: remark42.com
-    username: umputun
-    port: 22
-    secrets: [ ssh_key ]
-    script:
-      - cd /srv/remark-site
-      - git pull
+steps:
+  - name: deploy
+    image: docker.umputun.com/system/deploy-ci:master
+    commands:
+      - ssh umputun@remark42.com "cd /srv/remark-site && git pull"
     when:
       branch: master
+      event: push
+
+  - name: notify
+    image: drillster/drone-email
+    settings:
+      host: smtp.mailgun.org
+      username:
+        from_secret: email_username
+      password:
+        from_secret: email_password
+      from: drone@mg.umputun.dev
+      recipients: [sys@umputun.dev]
+    when:
+      status: [changed, failure]
