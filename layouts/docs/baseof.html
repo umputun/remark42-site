@@ -1,0 +1,18 @@
+{{ $styles := .Site.Data.classnames }}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{{ partial "head" . }} {{ block "head" . }} {{ end }}
+	</head>
+	<body>
+		{{ partial "header" . }}
+		<main class="{{ $styles.docsMain }}">
+			{{ partial "sidebar" . }}
+			<article>
+				{{ block "main" . }}
+			</article>
+			{{ end }}
+		</main>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+{{ $styles := .Site.Data.classnames }}
+<aside class="{{ $styles.aside }}">
+	<nav>
+		{{ template "section-tree-nav-section" (dict "page" . "section" .FirstSection) }}
+	</nav>
+</aside>
+{{ define "section-tree-nav-section" }}
+{{ $s := .section }}
+{{ $p := .page }}
+{{ $active := eq $p.CurrentSection $s }}
+<ul>
+	{{ $pages := (union $s.Pages $s.Sections) }}
+	{{ range $pages }}
+	{{ if .IsPage }}
+		{{ $active := eq . $p }}
+	<li>
+		<a class="{{ if $active }} active{{ end }}" href="{{ .RelPermalink }}">{{ .RelPermalink }}</a>
+	</li>
+	{{ else }}
+		{{ template "section-tree-nav-section" (dict "page" $p "section" .) }}{{ end }}
+	{{ end }}
+</ul>
+{{ end }}
