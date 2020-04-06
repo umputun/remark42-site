@@ -1,5 +1,6 @@
 {{ $styles := .Site.Data.classnames }}
 <header class="{{ $styles.header }}">
+	{{ partial "header-versions" . }}
 	<nav>
 		<ul class="{{ $styles.headerMenu }}">
 			<li><a href="/demo">Demo</a></li>

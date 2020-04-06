@@ -1,23 +1,31 @@
 {{ $styles := .Site.Data.classnames }}
-<aside class="{{ $styles.aside }}">
-	<nav>
-		{{ template "section-tree-nav-section" (dict "page" . "section" .FirstSection) }}
-	</nav>
-</aside>
-{{ define "section-tree-nav-section" }}
-{{ $s := .section }}
-{{ $p := .page }}
-{{ $active := eq $p.CurrentSection $s }}
-<ul>
-	{{ $pages := (union $s.Pages $s.Sections) }}
-	{{ range $pages }}
-	{{ if .IsPage }}
-		{{ $active := eq . $p }}
-	<li>
-		<a class="{{ if $active }} active{{ end }}" href="{{ .RelPermalink }}">{{ .RelPermalink }}</a>
-	</li>
-	{{ else }}
-		{{ template "section-tree-nav-section" (dict "page" $p "section" .) }}{{ end }}
+{{ $dirVersion := .File.Dir }}
+{{ $dirVersion = split $dirVersion "/" }}
+{{ $dirVersion = index $dirVersion 1 }}
+
+<aside>
+	{{ range .FirstSection.Pages }}
+		{{ $pageVersion := split .Page.RelPermalink "/" }}
+		{{ $pageVersion = index $pageVersion 2 }}
+		{{ if eq $pageVersion $dirVersion }}
+			{{ template "menu-level" (dict "Pages" .Pages "Site" .Site) }}
+		{{ end }}
 	{{ end }}
-</ul>
+</aside>
+
+{{ define "menu-level" }}
+	{{ $styles := .Site.Data.classnames }}
+	<ul class="{{ $styles.sidebarMenu }}">
+		{{ range .Pages }}
+			{{ if .IsPage }}
+				<li><a href="{{ .RelPermalink }}" class="{{ $styles.sidebarMenuLink }}">{{ .LinkTitle }}</a></li>
+			{{ else }}
+				<li>
+					<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+					{{ template "menu-level" (dict "Pages" .Pages "Version" $.Version "Site" .Site)}}
+				</li>
+			{{ end }}
+		{{ end }}
+	</ul>
 {{ end }}
+

@@ -1,0 +1,23 @@
+{{ $styles := .Site.Data.classnames }}
+{{ $currentSiteVersion := .Site.Params.docs.current }}
+{{ $pageVersion := split .Page.RelPermalink "/" }}
+{{ $pageVersion = index $pageVersion 2 }}
+{{ $pageVersion = index .Site.Params.docs.versions $pageVersion }}
+
+<div class="{{ $styles.versions }}">
+	{{ if $pageVersion }}
+		{{ $pageVersion }}
+	{{ else }}
+		v{{ $currentSiteVersion }}
+	{{ end }}
+	<ul class="{{ $styles.versionsList }}">
+		{{ range $key, $value := .Site.Params.docs.versions }}
+			{{ $active := eq $currentSiteVersion $value }}
+			{{ $itemClass := $styles.versionsListItem }}
+			{{ if $active }}
+				{{ $itemClass = (printf "%v %v" $itemClass $styles.versionsListItemActive) }}
+			{{ end }}
+			<li class="{{ $itemClass }}"><a href="/docs/{{ $key }}" class="{{ $styles.versionsListLink }}">{{ $value }}</a></li>
+		{{ end }}
+	</ul>
+</div>

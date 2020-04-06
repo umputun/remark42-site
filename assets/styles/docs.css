@@ -3,7 +3,7 @@
 	padding: 100px 40px;
 
 	& aside {
-		width: calc(100% / 4);
+		width: calc(100% / 5);
 		flex-shrink: 0;
 		padding-right: 40px;
 	}

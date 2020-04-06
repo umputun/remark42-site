@@ -16,7 +16,7 @@ FROM golang:1.14-alpine3.11
 
 WORKDIR /app
 
-ARG HUGO_VER=0.67.1
+ARG HUGO_VER=0.68.3
 ENV ENV=production
 ADD https://github.com/gohugoio/hugo/releases/download/v${HUGO_VER}/hugo_${HUGO_VER}_Linux-64bit.tar.gz /tmp
 ADD https://github.com/gohugoio/hugo/releases/download/v${HUGO_VER}/hugo_${HUGO_VER}_checksums.txt /tmp
@@ -26,14 +26,13 @@ RUN \
 	&& grep hugo_${HUGO_VER}_Linux-64bit.tar.gz hugo_${HUGO_VER}_checksums.txt | sha256sum -c \
 	&& tar -zxf hugo_${HUGO_VER}_Linux-64bit.tar.gz \
 	&& cp -fv /tmp/hugo /bin/hugo
-COPY static ./static
-COPY --from=assets /app/data ./data
-COPY --from=assets /app/static/assets ./static/assets
-COPY go.mod go.sum config.toml ./
+COPY static static
 COPY layouts layouts
 COPY content content
-COPY startup.sh ./
-RUN chmod +x startup.sh && hugo mod get -u
+COPY config.toml startup.sh ./
+COPY --from=assets /app/data ./data
+COPY --from=assets /app/static/assets ./static/assets
+RUN chmod +x startup.sh
 
 CMD [ "./startup.sh" ]
 EXPOSE 1313
