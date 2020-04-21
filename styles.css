@@ -12,6 +12,27 @@ body {
   }
 }
 
+@media (prefers-color-scheme: dark) {
+    body {
+      background: #111;
+      color: #aaa;
+    }
+    a {
+      color: lightblue;
+    }
+    ul {
+      color: orange;
+    }
+}
+@media (prefers-color-scheme: light) {
+    a {
+      color: rgb(79, 187, 214);
+    }
+    ul {
+      color: rgb(23, 67, 78);
+    }
+}
+
 article {
   display: block;
   text-align: left;
@@ -24,12 +45,7 @@ h1 {
   margin-left: -0.05em;
 }
 
-ul {
-  color: rgb(23, 67, 78);
-}
-
 a {
-  color: rgb(79, 187, 214);
   text-decoration: none;
 }
 
