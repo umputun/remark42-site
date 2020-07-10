@@ -1,0 +1,16 @@
+.sidebarMenu {
+	list-style: none;
+	padding: 0;
+}
+
+.sidebarMenu .sidebarMenu {
+	margin-left: 20px;
+	font-size: 16px;
+}
+
+.sidebarMenuItem {
+	margin-bottom: 5px;
+}
+.sidebarMenuLink {
+	line-height: 1.6;
+}

@@ -1,0 +1,27 @@
+.docsMain {
+	display: flex;
+	padding: 100px 40px;
+
+	& aside {
+		width: calc(100% / 5);
+		flex-shrink: 0;
+		padding-right: 40px;
+	}
+
+	& article {
+		flex-shrink: 1;
+		overflow: hidden;
+	}
+
+	& pre {
+		max-width: 100%;
+		background: #eee;
+		border-radius: 2px;
+		padding: 10px;
+		overflow-y: scroll;
+	}
+
+	& img {
+		max-width: 100%;
+	}
+}

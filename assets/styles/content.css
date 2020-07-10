@@ -1,0 +1,20 @@
+.content {
+	padding-bottom: 50px;
+	margin: 150px auto;
+	max-width: 640px;
+
+	& h1 {
+		font-size: 50px;
+		margin-bottom: 0.4em;
+	}
+}
+
+@media (max-width: 640px) {
+	.content {
+		margin: 0 15px;
+
+		& h1 {
+			display: none;
+		}
+	}
+}
