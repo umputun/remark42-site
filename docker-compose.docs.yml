@@ -10,6 +10,6 @@ services:
       - '1313:1313'
     environment:
       - ENV=development
-    volumes:
-      # You can mount your current versions of docs to container and work with it
-      # - "$path_to_docs:/app/content/docs"
+    #volumes:
+    # You can mount your current versions of docs to container and work with it
+    # - "$path_to_docs:/app/content/docs"
