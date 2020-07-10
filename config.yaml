@@ -1,0 +1,22 @@
+baseURL: https://remark42.com
+languageCode: en-us
+title: Remark42, commenting system
+
+disableKinds:
+  - taxonomy
+  - taxonomyTerm
+  - RSS
+
+module:
+  mounts:
+    - source: content
+      target: content
+    - source: docs
+      target: content/docs
+
+params:
+  docs:
+    current: 1.5
+    versions:
+      '1.5': 1.5
+      latest: Latest (1.x)
