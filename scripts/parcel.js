@@ -64,9 +64,10 @@ function entryPointHandler(bundle, { publicUrl, manifestDest }) {
 	const combinedManifest = Object.assign(oldManifestValue, manifestValue)
 
 	fs.writeFileSync(manifestPath, JSON.stringify(combinedManifest, null, 2))
+	console.log(`Manifest has been written to ${manifestPath}`)
 }
 
-;(async function() {
+;(async function () {
 	const options = getEnvOptions(parcelOptions)
 	const bundler = new Bundler(parcelOptions.entryFiles, options)
 
