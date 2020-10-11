@@ -13,11 +13,7 @@
 	<ul class="{{ $styles.versionsList }}">
 		{{ range $key, $value := .Site.Params.docs.versions }}
 			{{ $active := eq $currentSiteVersion $value }}
-			{{ $itemClass := $styles.versionsListItem }}
-			{{ if $active }}
-				{{ $itemClass = (printf "%v %v" $itemClass $styles.versionsListItemActive) }}
-			{{ end }}
-			<li class="{{ $itemClass }}"><a href="/docs/{{ $key }}" class="{{ $styles.versionsListLink }}">{{ $value }}</a></li>
+			<li class="{{ $styles.versionsListItem }}"><a href="/docs/{{ $key }}" class="{{ $styles.versionsListLink }}">{{ $value }}</a></li>
 		{{ end }}
 	</ul>
 </div>
