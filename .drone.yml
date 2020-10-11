@@ -7,6 +7,7 @@ steps:
     image: docker.umputun.com/system/deploy-ci:master
     commands:
       - ssh umputun@remark42.com "cd /srv/remark-site && git pull"
+      - ssh umputun@remark42.com "cd /srv/remark-site && docker-compose build && docker-compose up"
     when:
       branch: master
       event: push
