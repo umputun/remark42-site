@@ -26,12 +26,12 @@ RUN \
 	&& grep hugo_${HUGO_VER}_Linux-64bit.tar.gz hugo_${HUGO_VER}_checksums.txt | sha256sum -c \
 	&& tar -zxf hugo_${HUGO_VER}_Linux-64bit.tar.gz \
 	&& cp -fv /tmp/hugo /bin/hugo
-COPY static static
-COPY layouts layouts
-COPY content content
-COPY config.toml startup.sh ./
-COPY --from=assets /app/data ./data
-COPY --from=assets /app/static/assets ./static/assets
+COPY static /app/static
+COPY layouts /app/layouts
+COPY content /app/content
+COPY config.yaml startup.sh /app/
+COPY --from=assets /app/data /app/data
+COPY --from=assets /app/static/assets /app/static/assets
 RUN chmod +x startup.sh
 
 CMD [ "./startup.sh" ]
