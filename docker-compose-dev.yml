@@ -6,7 +6,6 @@ services:
     image: umputun/remark42-site:master
     container_name: 'remark42-site'
     hostname: 'remark42-site'
-    restart: always
     ports:
       - '1313:1313'
     environment:

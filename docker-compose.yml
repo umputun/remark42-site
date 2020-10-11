@@ -6,7 +6,6 @@ services:
     image: umputun/remark42-site:latest
     container_name: 'remark42-site'
     hostname: 'remark42-site'
-    restart: always
     environment:
       - ENV=production
     volumes:
