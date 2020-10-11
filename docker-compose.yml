@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  remark42-site:
+    build: .
+    image: umputun/remark42-site:latest
+    container_name: 'remark42-site'
+    hostname: 'remark42-site'
+    restart: always
+    environment:
+      - ENV=production
+    volumes:
+      - ./remark42/docs:/app/content/docs
+      - ./public:/app/public

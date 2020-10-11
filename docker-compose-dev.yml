@@ -3,6 +3,7 @@ version: '2'
 services:
   remark42-site:
     build: .
+    image: umputun/remark42-site:master
     container_name: 'remark42-site'
     hostname: 'remark42-site'
     restart: always
@@ -10,6 +11,5 @@ services:
       - '1313:1313'
     environment:
       - ENV=development
-    #volumes:
-    # You can mount your current versions of docs to container and work with it
-    # - "$path_to_docs:/app/content/docs"
+    volumes:
+      - ./remark42/docs:/app/content/docs"
