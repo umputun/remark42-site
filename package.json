@@ -1,0 +1,96 @@
+{
+  "name": "remark42-site",
+  "license": "MIT",
+  "version": "1.0.0",
+  "description": "Official site of Remark42",
+  "repository": "git@github.com:akellbl4/remark42-site.git",
+  "engines": {
+    "node": ">=10.15.0"
+  },
+  "scripts": {
+    "dev": "rm -rf .cache && run-p dev:*",
+    "dev:assets": "cross-env NODE_ENV=development scripts/parcel.js",
+    "dev:hugo": "cross-env NODE_ENV=development hugo serve --gc --disableFastRender --port ${HUGO_PORT:-1313}",
+    "build": "run-s build:*",
+    "build:assets": "cross-env NODE_ENV=production scripts/parcel.js",
+    "build:hugo": "cross-env NODE_ENV=production hugo --gc --minify"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.2",
+    "eslint": "^7.4.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^1.0.5",
+    "husky": "^4.2.5",
+    "npm-run-all": "^4.1.5",
+    "parcel-bundler": "^1.12.4",
+    "postcss-import": "^12.0.1",
+    "postcss-modules": "^3.2.0",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "2.0.5",
+    "pretty-quick": "^2.0.1"
+  },
+  "parcelOptions": {
+    "entryFiles": "./assets/main.js",
+    "outDir": "./static/assets",
+    "publicUrl": "/assets",
+    "manifestDest": "./data/manifest.json",
+    "env": {
+      "production": {
+        "minify": true,
+        "cache": false,
+        "scopeHoist": true,
+        "sourceMaps": false
+      }
+    }
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "semi": false,
+    "singleQuote": true,
+    "printWidth": 100,
+    "bracketSpacing": true,
+    "arrowParens": "always"
+  },
+  "eslintConfig": {
+    "env": {
+      "node": true,
+      "browser": true
+    },
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaVersion": 2020
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:prettier/recommended"
+    ],
+    "rules": {
+      "prettier/prettier": "error"
+    },
+    "plugins": [
+      "prettier"
+    ],
+    "overrides": [
+      {
+        "files": "scripts/*.js",
+        "extends": [
+          "plugin:node/recommended"
+        ],
+        "rules": {
+          "no-process-exit": "off",
+          "node/no-unpublished-require": "off",
+          "node/shebang": "off"
+        }
+      }
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}

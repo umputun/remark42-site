@@ -1,0 +1,15 @@
+body {
+	margin: 0;
+	font-family: Helvetica, system-ui;
+	font-size: 18px;
+	line-height: 1.4;
+	color: #333;
+}
+
+a {
+	color: #0aa;
+
+	&:hover {
+		opacity: 0.7;
+	}
+}
