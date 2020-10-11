@@ -9,8 +9,8 @@
   },
   "scripts": {
     "dev": "rm -rf .cache && run-p dev:*",
-    "dev:hugo": "cross-env NODE_ENV=development hugo serve --gc --disableFastRender --port ${HUGO_PORT:-1313}",
     "dev:assets": "cross-env NODE_ENV=development scripts/parcel.js",
+    "dev:hugo": "cross-env NODE_ENV=development hugo serve --gc --disableFastRender --port ${HUGO_PORT:-1313}",
     "build": "run-s build:*",
     "build:assets": "cross-env NODE_ENV=production scripts/parcel.js",
     "build:hugo": "cross-env NODE_ENV=production hugo --gc --minify"

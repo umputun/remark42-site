@@ -6,3 +6,4 @@ static/assets
 parcel-*
 yarn-*
 docker-compose.docs-private.yml
+node_modules

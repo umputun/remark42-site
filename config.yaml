@@ -11,12 +11,12 @@ module:
   mounts:
     - source: content
       target: content
-    - source: docs
+    - source: remark42/docs
       target: content/docs
 
 params:
   docs:
-    current: 1.5
+    current: 1.6
     versions:
-      '1.5': 1.5
+      '1.6': 1.6
       latest: Latest (1.x)
