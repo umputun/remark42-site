@@ -10,6 +10,12 @@
 	}
 }
 
+@media (prefers-color-scheme: dark) {
+	.versions:hover {
+		color: #fff;
+	}
+}
+
 .versionsList {
 	position: absolute;
 	top: 100%;

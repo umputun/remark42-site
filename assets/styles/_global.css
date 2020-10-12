@@ -13,3 +13,16 @@ a {
 		opacity: 0.7;
 	}
 }
+
+@media (prefers-color-scheme: dark) {
+	body {
+		background: #222;
+		color: #eee;
+	}
+	a {
+		color: lightblue;
+	}
+	pre {
+		background: #333;
+	}
+}
