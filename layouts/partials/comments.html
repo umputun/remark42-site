@@ -1,13 +1,26 @@
 <div id="remark42"></div>
 <script>
+	var isDark
+
+	if (typeof window.matchMedia === 'function') {
+		var mq = window.matchMedia('(prefers-color-scheme: dark)')
+		isDark = mq.matches
+
+		mq.addListener(() => {
+			window.REMARK42.changeTheme(mq.matches ? 'dark' : 'light');
+		})
+	}
+
 	var remark_config = {
 		host: 'https://demo.remark42.com',
 		site_id: 'remark',
 		components: ['embed'],
 		url: 'https://remark42.com{{ .RelPermalink }}',
 		max_shown_comments: 20,
-		theme: 'light',
+		theme: isDark ? 'dark' : 'light',
 	}
+
+
 
 	;(function(c) {
 		for (var i = 0; i < c.length; i++) {
