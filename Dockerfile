@@ -2,12 +2,11 @@ FROM node:12.19.0-alpine as assets
 
 WORKDIR /app
 
-COPY package.json yarn.lock postcss.config.js ./
+COPY package.json yarn.lock gulpfile.js ./
 RUN yarn install --frozen-lockfile
 
 ENV PARCEL_WORKERS=1
-COPY scripts scripts
-COPY assets assets
+COPY assets /app/assets
 RUN \
 	mkdir data \
 	&& yarn build:assets
