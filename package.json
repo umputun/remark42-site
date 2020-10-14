@@ -8,44 +8,34 @@
     "node": ">=10.15.0"
   },
   "scripts": {
-    "dev": "rm -rf .cache && run-p dev:*",
-    "dev:assets": "cross-env NODE_ENV=development scripts/parcel.js",
-    "dev:hugo": "cross-env NODE_ENV=development hugo serve --gc --disableFastRender --port ${HUGO_PORT:-1313}",
+    "dev": "rm -rf .cache && yarn build:assets && run-p dev:hugo dev:assets",
+    "dev:assets": "gulp watch",
+    "dev:hugo": "hugo serve --gc --disableFastRender --port ${HUGO_PORT:-1313}",
     "build": "run-s build:*",
-    "build:assets": "cross-env NODE_ENV=production scripts/parcel.js",
-    "build:hugo": "cross-env NODE_ENV=production hugo --gc --minify"
+    "build:assets": "gulp",
+    "build:hugo": "hugo --gc --minify"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "cross-env": "^7.0.2",
+    "cssnano": "^4.1.10",
     "eslint": "^7.4.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "express": "^4.17.1",
-    "http-proxy-middleware": "^1.0.5",
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-cli": "^2.3.0",
+    "gulp-connect": "^5.7.0",
+    "gulp-hash": "^4.2.2",
+    "gulp-postcss": "^9.0.0",
     "husky": "^4.2.5",
     "npm-run-all": "^4.1.5",
-    "parcel-bundler": "^1.12.4",
+    "postcss": "^8.1.1",
     "postcss-import": "^12.0.1",
     "postcss-modules": "^3.2.0",
     "postcss-preset-env": "^6.7.0",
     "prettier": "2.0.5",
     "pretty-quick": "^2.0.1"
-  },
-  "parcelOptions": {
-    "entryFiles": "./assets/main.js",
-    "outDir": "./static/assets",
-    "publicUrl": "/assets",
-    "manifestDest": "./data/manifest.json",
-    "env": {
-      "production": {
-        "minify": true,
-        "cache": false,
-        "scopeHoist": true,
-        "sourceMaps": false
-      }
-    }
   },
   "prettier": {
     "trailingComma": "es5",
@@ -76,7 +66,7 @@
     ],
     "overrides": [
       {
-        "files": "scripts/*.js",
+        "files": "gulpfile.js",
         "extends": [
           "plugin:node/recommended"
         ],
