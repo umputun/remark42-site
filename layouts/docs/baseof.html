@@ -7,11 +7,15 @@
 	</head>
 	<body>
 		{{ partial "header" . }}
-		<main class="{{ $styles.docsMain }}">
-			{{ partial "sidebar" . }}
-			<article>
+		<main class="{{ $styles.docs }}">
+			<div class="{{ $styles.docsSidebar}}">
+				<h4 class="{{ $styles.docsSidebarHeader }}">Documentation</h4>
+				{{ partial "version-list" . }}
+				{{ partial "sidebar" . }}
+			</div>
+			<div class="{{ $styles.docsContent }}">
 				{{ block "main" . }}
-			</article>
+			</div>
 			{{ end }}
 		</main>
 	</body>

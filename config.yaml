@@ -19,4 +19,4 @@ params:
     current: 1.6
     versions:
       '1.6': 1.6
-      latest: Latest (1.x)
+      latest: 1.x (latest)
