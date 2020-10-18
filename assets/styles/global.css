@@ -1,9 +1,10 @@
 body {
 	margin: 0;
+	min-width: 320px;
 	font-family: Helvetica, system-ui;
 	font-size: 18px;
 	line-height: 1.4;
-	color: #333;
+	color: #111;
 }
 
 a {
@@ -12,6 +13,41 @@ a {
 	&:hover {
 		opacity: 0.7;
 	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-top: 0;
+	margin-bottom: 8px;
+	font-weight: bold;
+}
+
+h1 {
+	font-size: 40px;
+}
+
+h2 {
+	font-size: 32px;
+}
+
+h3 {
+	font-size: 28px;
+}
+
+h4 {
+	font-size: 24px;
+}
+
+h5 {
+	font-size: 20px;
+}
+
+h6 {
+	font-size: 16px;
 }
 
 @media (prefers-color-scheme: dark) {

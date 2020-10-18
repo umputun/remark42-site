@@ -1,20 +1,14 @@
 .content {
-	padding-bottom: 50px;
-	margin: 150px auto;
-	max-width: 640px;
-
-	& h1 {
-		font-size: 50px;
-		margin-bottom: 0.4em;
-	}
+	margin: 36px auto;
+	padding: 0 10px;
+	max-width: 1140px;
+	box-sizing: border-box;
 }
 
-@media (max-width: 640px) {
+@media (min-width: 769px) {
 	.content {
-		margin: 0 15px;
-
-		& h1 {
-			display: none;
-		}
+		padding-left: 368px;
+		margin-top: 48px;
+		margin-bottom: 48px;
 	}
 }

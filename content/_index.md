@@ -2,8 +2,6 @@ Remark42 is a self-hosted, lightweight, and simple (yet functional) commenting s
 doesn't spy on users. It can be embedded into blogs, articles or any other place where readers
 add comments.
 
-Check out our [demo](/demo).
-
 - Social login via Google, Twitter, Facebook, GitHub and Yandex
 - Login via email
 - Optional anonymous access
