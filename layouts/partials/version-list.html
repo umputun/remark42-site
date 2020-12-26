@@ -12,8 +12,8 @@
 </select>
 <script>
 	document.querySelector('.{{ $styles.versionsSelect }}').addEventListener('change', function(){
-		const arrpath = window.location.pathname.split('/')
-		arrpath[2] = this.value
+		const arrpath = window.location.pathname.split('/').filter(function(i){ return i !== '' })
+		arrpath[1] = this.value
 		window.location.href = window.location.origin + '/' + arrpath.join('/') + '/'
 	})
 </script>
