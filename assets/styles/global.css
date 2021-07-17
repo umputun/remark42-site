@@ -51,6 +51,9 @@ h6 {
 }
 
 @media (prefers-color-scheme: dark) {
+	html {
+		color-scheme: dark;
+	}
 	body {
 		background: #222;
 		color: #eee;
