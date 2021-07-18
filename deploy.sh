@@ -11,6 +11,6 @@ docker-compose build && docker-compose up && docker-compose rm -f
 echo "Copying..."
 rm -rf /srv/www/remark42.com/
 mkdir -p /srv/www/remark42.com
-cp -rf /tmp/remark42-site.git/public/ /srv/www/remark42.com 
+cp -rf /tmp/remark42-site.git/public/* /srv/www/remark42.com/ 
 sudo rm -rf /tmp/remark42-site.git
 echo "Done"
